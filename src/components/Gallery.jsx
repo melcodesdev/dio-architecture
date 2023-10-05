@@ -2,7 +2,9 @@ import React from 'react'
 import { useState } from 'react'
 
 const Gallery = () => {
-  const galleryContent = [
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const galleryContents = [
     {
       id: 1,
       imageUrl: './images/1.jpg',
@@ -19,7 +21,7 @@ const Gallery = () => {
       id: 3,
       imageUrl: './images/3.jpg',
       title: 'The Enigma, Iceland',
-      description: "A state-of-the-art sports facility that mimics the ebb and flow of enigmatic cubes. Located in Reykjavik, The Enigma offers a unique and immersive experience for athletes and sports enthusiasts alike. Inspired by Iceland's enigmatic and majestic natural landscape, it incorporates eco-friendly features such as solar panels and rainwater harvesting."
+      description: "A state-of-the-art sports facility that mimics the ebb and flow of enigmatic cubes. Located in Reykjavik, it offers a unique and immersive experience for athletes and sports enthusiasts alike. Inspired by Iceland's enigmatic and majestic natural landscape, it incorporates eco-friendly features such as solar panels and rainwater harvesting."
     },
     {
       id: 4,
@@ -31,7 +33,7 @@ const Gallery = () => {
       id: 5,
       imageUrl: './images/5.jpg',
       title: 'The Floating School, Brazil',
-      description: 'A groundbreaking project in the heart of the Amazon rainforest, The Floating School is a sustainable building that floats on the river and equipped with solar panels and rain water harvesting, an innovative solution to the challenges of providing education in remote areas by giving children in isolated communities access to education.'
+      description: 'A project in the heart of the Amazon rainforest, The Floating School is a sustainable building that floats on the river and equipped with solar panels and rain water harvesting, an innovative solution to the challenges of providing education in remote areas by giving children in isolated communities access to education.'
     },
     {
       id: 6,
@@ -45,30 +47,45 @@ const Gallery = () => {
       title: 'The Lantern, China',
       description: 'A modern art museum in the heart of Beijing that pays homage to traditional Chinese lanterns, The Lantern is a striking architectural masterpiece that showcases contemporary Chinese art alongside ancient relics. Its unique shape was inspired by the iconic lanterns that are a symbol of Chinese culture.'
     },
-  ]
+  ];
 
+  const handleImageClick = (id) => {
+    setSelectedImage(id);
+  };
 
   return (
-    <section className='h-[90vh] flex flex-col'>
+    <section className='h-[90vh] flex flex-col bg-black'>
       <div className='w-screen flex flex-row'>
-        {galleryContent.map((content) => (
-          <div key={content.id} className='flex-1'>
-            <img src={content.imageUrl} className='relative object-cover w-1/7 h-[50vh]' alt="Gallery project image" />
-            <h2 className='absolute w-full font-bodoniModa font-italic text-white origin-top-left -rotate-90 ml-3 -my-2 text-xs m-auto'>{content.title}</h2>
+        {galleryContents.map((galleryContent) => (
+          <div
+            key={galleryContent.id}
+            className={`flex-1 ${selectedImage === galleryContent.id ? 'w-screen' : ''}`}
+            onClick={() => handleImageClick(galleryContent.id)}
+          >
+            <img
+              src={galleryContent.imageUrl}
+              className={`object-cover w-1/7 h-[40vh] grayscale hover:grayscale-0 ${selectedImage === galleryContent.id ? 'absolute block z-10 left-0 w-screen object-fill overflow:visible cursor-pointer' : 'cursor-pointer'
+                }`}
+              alt="Gallery project image" />
+            <h2 className={`absolute w-full font-bodoniModa font-italic text-white origin-top-left -rotate-90 ml-3 -my-2 text-xs m-auto ${selectedImage === galleryContent.id ? 'hidden' : ''
+              }`}
+            >{galleryContent.title}</h2>
           </div>
         ))}
       </div>
 
-      <div className='flex flex-col h-[40vh] p-4'>
-        <p className='flex-1 font-bodoniModa text-justify text-xs'>Description text</p>
+      <div className='flex flex-col h-[50vh]  text-white text-justify text-xs p-4'>
+        <p className='font-bodoniModa'> {selectedImage !== null ? galleryContents[selectedImage - 1].title : ''}</p>
 
-        <p className='font-bebasNeue text-justify text-xs'>Founded by Jane Dio, we at DIO ARCHITECTURE has built a reputation for
+        <p className='flex-1 font-bodoniModa my-2'> {selectedImage !== null ? galleryContents[selectedImage - 1].description : ''}</p>
+
+        <p className='font-bebasNeue my-4'>Founded by Jane Dio, we at DIO ARCHITECTURE has built a reputation for
           excellence in architectural design and construction for over 11 years,
           showcasing a wide range of projects including commercial and residential
           buildings, hotels, schools, and public spaces worldwide.</p>
 
 
-        <a className='font-bebasNeue text-center border border-black text-base my-2 p-1' href="mailto:melcodes.dev@gmail.com">SEND US AN EMAIL</a>
+        <a className='font-bebasNeue text-center border border-white my-2 p-1' href="mailto:melcodes.dev@gmail.com">SEND US AN EMAIL</a>
       </div>
     </section>
   )
