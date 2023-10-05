@@ -50,8 +50,13 @@ const Gallery = () => {
   ];
 
   const handleImageClick = (id) => {
-    setSelectedImage(id);
+    setSelectedImage((prevSelectedImage) => (prevSelectedImage === id ? null : id));
   };
+
+  const isImageSelected = (id) => {
+    return selectedImage === id;
+  };
+
 
   return (
     <section className='h-[90vh] flex flex-col bg-black'>
@@ -59,33 +64,37 @@ const Gallery = () => {
         {galleryContents.map((galleryContent) => (
           <div
             key={galleryContent.id}
-            className={`flex-1 ${selectedImage === galleryContent.id ? 'w-screen' : ''}`}
+            className={`flex-1 ${isImageSelected(galleryContent.id) ? 'w-screen' : ''}`}
             onClick={() => handleImageClick(galleryContent.id)}
           >
             <img
               src={galleryContent.imageUrl}
-              className={`object-cover w-1/7 h-[40vh] grayscale hover:grayscale-0 ${selectedImage === galleryContent.id ? 'absolute block z-10 left-0 w-screen object-fill overflow:visible cursor-pointer' : 'cursor-pointer'
+              className={`object-cover w-1/7 h-[38vh] grayscale hover:grayscale-0 ${
+                isImageSelected(galleryContent.id) ? 'absolute block z-10 left-0 w-screen object-fill overflow:visible cursor-pointer' : 'cursor-pointer'
                 }`}
               alt="Gallery project image" />
-            <h2 className={`absolute w-full font-bodoniModa font-italic text-white origin-top-left -rotate-90 ml-3 -my-2 text-xs m-auto ${selectedImage === galleryContent.id ? 'hidden' : ''
+            <h2 className={`absolute w-full font-bodoniModa font-italic text-white origin-top-left -rotate-90 ml-3 -my-1 text-xs m-auto ${
+                isImageSelected(galleryContent.id) ? 'hidden' : ''
               }`}
             >{galleryContent.title}</h2>
           </div>
         ))}
       </div>
 
-      <div className='flex flex-col h-[50vh]  text-white text-justify text-xs p-4'>
+      <div className='flex flex-col h-[57vh] text-white text-justify text-xs p-4'>
         <p className='font-bodoniModa'> {selectedImage !== null ? galleryContents[selectedImage - 1].title : ''}</p>
 
-        <p className='flex-1 font-bodoniModa my-2'> {selectedImage !== null ? galleryContents[selectedImage - 1].description : ''}</p>
+        <p className='flex-1 font-bodoniModa my-1'> {selectedImage !== null ? galleryContents[selectedImage - 1].description : ''}</p>
 
-        <p className='font-bebasNeue my-4'>Founded by Jane Dio, we at DIO ARCHITECTURE has built a reputation for
+        <hr className='w-full mx-auto my-1' />
+
+        <p className='font-bebasNeue my-1'>Founded by Jane Dio, we at DIO ARCHITECTURE has built a reputation for
           excellence in architectural design and construction for over 11 years,
           showcasing a wide range of projects including commercial and residential
           buildings, hotels, schools, and public spaces worldwide.</p>
 
 
-        <a className='font-bebasNeue text-center border border-white my-2 p-1' href="mailto:melcodes.dev@gmail.com">SEND US AN EMAIL</a>
+        <a className='font-bebasNeue text-center border border-white my-1 p-1' href="mailto:melcodes.dev@gmail.com">SEND US AN EMAIL</a>
       </div>
     </section>
   )
