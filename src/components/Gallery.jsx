@@ -49,13 +49,26 @@ const Gallery = () => {
 
 
   return (
-    <section className='h-[90vh]'>
+    <section className='h-[90vh] flex flex-col'>
       <div className='w-screen flex flex-row'>
         {galleryContent.map((content) => (
           <div key={content.id} className='flex-1'>
-            <img src={content.imageUrl} className='object-cover w-1/7 h-[50vh]' alt="Gallery project image" />
+            <img src={content.imageUrl} className='relative object-cover w-1/7 h-[50vh]' alt="Gallery project image" />
+            <h2 className='absolute w-full font-bodoniModa font-italic text-white origin-top-left -rotate-90 ml-3 -my-2 text-xs m-auto'>{content.title}</h2>
           </div>
         ))}
+      </div>
+
+      <div className='flex flex-col h-[40vh] p-4'>
+        <p className='flex-1 font-bodoniModa text-justify text-xs'>Description text</p>
+
+        <p className='font-bebasNeue text-justify text-xs'>Founded by Jane Dio, we at DIO ARCHITECTURE has built a reputation for
+          excellence in architectural design and construction for over 11 years,
+          showcasing a wide range of projects including commercial and residential
+          buildings, hotels, schools, and public spaces worldwide.</p>
+
+
+        <a className='font-bebasNeue text-center border border-black text-base my-2 p-1' href="mailto:melcodes.dev@gmail.com">SEND US AN EMAIL</a>
       </div>
     </section>
   )
