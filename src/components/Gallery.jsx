@@ -69,11 +69,11 @@ const Gallery = () => {
           >
             <img
               src={galleryContent.imageUrl}
-              className={`object-cover w-1/7 h-[38vh] grayscale hover:grayscale-0 ${
+              className={`object-cover w-1/7 h-[40vh] grayscale hover:grayscale-0 ${
                 isImageSelected(galleryContent.id) ? 'absolute block z-10 left-0 w-screen object-fill overflow:visible cursor-pointer' : 'cursor-pointer'
                 }`}
               alt="Gallery project image" />
-            <h2 className={`absolute w-full font-bodoniModa font-italic text-white origin-top-left -rotate-90 ml-3 -my-1 text-xs m-auto ${
+            <h2 className={`absolute w-full font-bodoniModa font-italic text-white origin-top-left -rotate-90 ml-4 xs:ml-6 sm:ml-8 md:ml-11 lg:ml-14 -my-1 sm:-my-2 text-xs sm:text-xl lg:text-2xl m-auto ${
                 isImageSelected(galleryContent.id) ? 'hidden' : ''
               }`}
             >{galleryContent.title}</h2>
@@ -81,12 +81,12 @@ const Gallery = () => {
         ))}
       </div>
 
-      <div className='flex flex-col h-[57vh] text-white text-justify text-xs p-4'>
-        <p className='font-bodoniModa'> {selectedImage !== null ? galleryContents[selectedImage - 1].title : ''}</p>
+      <div className='flex flex-col h-[50vh] text-white text-justify text-xs xs:text-base sm:text-xl lg:text-2xl px-4 xs:px-8 sm:px-16 py-4 sm:py-8'>
+        <p className='font-bodoniModa sm:mt-4'> {selectedImage !== null ? galleryContents[selectedImage - 1].title : ''}</p>
 
-        <p className='flex-1 font-bodoniModa my-1'> {selectedImage !== null ? galleryContents[selectedImage - 1].description : ''}</p>
+        <p className='flex-1 font-bodoniModa my-1 sm:my-4 lg:my-8'> {selectedImage !== null ? galleryContents[selectedImage - 1].description : ''}</p>
 
-        <hr className='w-full mx-auto my-1' />
+        <hr className='w-full sm:border-2 mx-auto my-1 sm:my-4 lg:my-8' />
 
         <p className='font-bebasNeue my-1'>Founded by Jane Dio, we at DIO ARCHITECTURE has built a reputation for
           excellence in architectural design and construction for over 11 years,
@@ -94,7 +94,7 @@ const Gallery = () => {
           buildings, hotels, schools, and public spaces worldwide.</p>
 
 
-        <a className='font-bebasNeue text-center border border-white my-1 p-1' href="mailto:melcodes.dev@gmail.com">SEND US AN EMAIL</a>
+        <a className='font-bebasNeue text-center border sm:border-2 border-white my-1 sm:my-4 lg:my-8 p-1 sm:p-2 lg:p-4' href="mailto:melcodes.dev@gmail.com">SEND US AN EMAIL</a>
       </div>
     </section>
   )
