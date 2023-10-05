@@ -59,8 +59,8 @@ const Gallery = () => {
 
 
   return (
-    <section className='h-[90vh] flex flex-col bg-black'>
-      <div className='w-screen flex flex-row'>
+    <section className='h-[90vh] xl:h-[84h] flex flex-col xl:flex-row bg-black'>
+      <div className='w-screen xl:w-[60vw] flex flex-row'>
         {galleryContents.map((galleryContent) => (
           <div
             key={galleryContent.id}
@@ -69,22 +69,20 @@ const Gallery = () => {
           >
             <img
               src={galleryContent.imageUrl}
-              className={`object-cover w-1/7 h-[40vh] grayscale hover:grayscale-0 ${
-                isImageSelected(galleryContent.id) ? 'absolute block z-10 left-0 w-screen object-fill overflow:visible cursor-pointer' : 'cursor-pointer'
+              className={`object-cover w-1/7 xl:w-[60vw] h-[40vh] xl:h-[84vh] grayscale hover:grayscale-0 ${isImageSelected(galleryContent.id) ? 'absolute block z-10 left-0 w-screen object-fill overflow:visible cursor-pointer grayscale-0' : 'cursor-pointer'
                 }`}
               alt="Gallery project image" />
-            <h2 className={`absolute w-full font-bodoniModa font-italic text-white origin-top-left -rotate-90 ml-4 xs:ml-6 sm:ml-8 md:ml-11 lg:ml-14 -my-1 sm:-my-2 text-xs sm:text-xl lg:text-2xl m-auto ${
-                isImageSelected(galleryContent.id) ? 'hidden' : ''
+            <h2 className={`absolute w-full font-bodoniModa font-italic text-white origin-top-left -rotate-90 ml-4 xs:ml-6 sm:ml-8 md:ml-11 lg:ml-14 -my-1 sm:-my-2 text-xs sm:text-xl lg:text-2xl m-auto ${isImageSelected(galleryContent.id) ? 'hidden' : ''
               }`}
             >{galleryContent.title}</h2>
           </div>
         ))}
       </div>
 
-      <div className='flex flex-col h-[50vh] text-white text-justify text-xs xs:text-base sm:text-xl lg:text-2xl px-4 xs:px-8 sm:px-16 py-4 sm:py-8'>
-        <p className='font-bodoniModa sm:mt-4'> {selectedImage !== null ? galleryContents[selectedImage - 1].title : ''}</p>
+      <div className='flex flex-col xl:w-[40vw] h-[50vh] xl:h-[74h] text-white text-justify text-xs sm:text-xl lg:text-2xl xl:text-xl px-4 xs:px-8 sm:px-16 xl:px-8 py-4 sm:py-8'>
+        <p className='font-bodoniModa sm:mt-4 xl:mt-2'> {selectedImage !== null ? galleryContents[selectedImage - 1].title : ''}</p>
 
-        <p className='flex-1 font-bodoniModa my-1 sm:my-4 lg:my-8'> {selectedImage !== null ? galleryContents[selectedImage - 1].description : ''}</p>
+        <p className='flex-1 font-bodoniModa my-1 sm:my-4 lg:my-8 xl:my-2'> {selectedImage !== null ? galleryContents[selectedImage - 1].description : ''}</p>
 
         <hr className='w-full sm:border-2 mx-auto my-1 sm:my-4 lg:my-8' />
 
