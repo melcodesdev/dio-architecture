@@ -95,7 +95,7 @@ const Gallery = () => {
           buildings, hotels, schools, and public spaces worldwide</p>
 
 
-        <a className='font-bebasNeue text-center border sm:border-2 border-white mt-2 mb-4 p-1 sm:p-2 xl:p-4 hover:bg-stone-800' href="mailto:melcodes.dev@gmail.com">SEND US AN EMAIL</a>
+        <a className='font-bebasNeue text-center border sm:border-2 border-white mt-2 mb-[15vh] xl:mb-[5vh] p-1 sm:p-2 xl:p-4 hover:bg-stone-800' href="mailto:melcodes.dev@gmail.com">SEND US AN EMAIL</a>
       </div>
     </section>
   )
