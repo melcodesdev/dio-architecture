@@ -4,5 +4,5 @@
 
 body, html {
     user-select: none;
-    overflow-y: hidden;
+    overflow: hidden;
 }

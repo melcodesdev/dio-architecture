@@ -39,7 +39,7 @@ const Gallery = () => {
       id: 6,
       imageUrl: './images/6.jpg',
       title: 'Red Hawk Palace, Dubai',
-      description: 'A luxurious residential complex inspired by the red hawk bird. Located in the heart of Dubai, The Red Hawk Palace is a stunning architectural feat that captures the beauty and elegance of its namesake. Its design incorporates traditional Middle Eastern elements with a contemporary twist and shape that resembles the outstretched wings of a red hawk.'
+      description: 'A luxurious residential complex inspired by the red hawk bird. Located in the heart of Dubai, it is a stunning architectural feat that captures the beauty of its namesake. Its design incorporates traditional Middle Eastern elements with a contemporary twist and shape that resembles the outstretched wings of a red hawk.'
     },
     {
       id: 7,
@@ -59,8 +59,8 @@ const Gallery = () => {
 
 
   return (
-    <section className='h-[90vh] xl:h-[84h] flex flex-col xl:flex-row bg-black'>
-      <div className='w-screen xl:w-[60vw] flex flex-row'>
+    <section className='h-[95vh] xs:h-[90vh] xl:h-[84h] flex flex-col xl:flex-row bg-black'>
+      <div className='w-screen xl:w-[60vw] flex xl:flex-row'>
         {galleryContents.map((galleryContent) => (
           <div
             key={galleryContent.id}
@@ -69,30 +69,33 @@ const Gallery = () => {
           >
             <img
               src={galleryContent.imageUrl}
-              className={`object-cover w-1/7 xl:w-[60vw] h-[40vh] xl:h-[84vh] grayscale hover:grayscale-0 ${isImageSelected(galleryContent.id) ? 'absolute block z-10 left-0 w-screen object-fill overflow:visible cursor-pointer grayscale-0' : 'cursor-pointer'
+              className={`object-cover w-1/7 xl:w-[60vw] h-[45vh] xl:h-[84vh] grayscale hover:grayscale-0 ${isImageSelected(galleryContent.id) ? 'absolute block z-10 left-0 w-screen object-fill overflow:visible cursor-pointer grayscale-0' : 'cursor-pointer'
                 }`}
               alt="Gallery project image" />
-            <h2 className={`absolute w-full font-bodoniModa font-italic text-white origin-top-left -rotate-90 ml-4 xs:ml-6 sm:ml-8 md:ml-11 lg:ml-14 -my-1 sm:-my-2 text-xs sm:text-xl lg:text-2xl m-auto ${isImageSelected(galleryContent.id) ? 'hidden' : ''
+            <h2 className={`absolute w-full font-bodoniModa font-italic text-white origin-top-left -rotate-90 ml-4 xs:ml-6 sm:ml-8 md:ml-11 lg:ml-14 -my-1 sm:-my-2 text-xs sm:text-base xl:text-2xl m-auto ${isImageSelected(galleryContent.id) ? 'hidden' : ''
               }`}
             >{galleryContent.title}</h2>
           </div>
         ))}
       </div>
 
-      <div className='flex flex-col xl:w-[40vw] h-[50vh] xl:h-[74h] text-white text-justify text-xs sm:text-xl lg:text-2xl xl:text-xl px-4 xs:px-8 sm:px-16 xl:px-8 py-4 sm:py-8'>
-        <p className='font-bodoniModa sm:mt-4 xl:mt-2'> {selectedImage !== null ? galleryContents[selectedImage - 1].title : ''}</p>
+      <div className='flex flex-col xl:w-[40vw] h-[50vh] xl:h-[84vh] text-white text-justify text-xs sm:text-base lg:text-xl px-4 xs:px-8 sm:px-16 xl:px-8'>
+        <div className='flex flex-1'></div>
+        <p className='font-bodoniModa my-2'> {selectedImage !== null ? galleryContents[selectedImage - 1].title : ''}</p>
 
-        <p className='flex-1 font-bodoniModa my-1 sm:my-4 lg:my-8 xl:my-2'> {selectedImage !== null ? galleryContents[selectedImage - 1].description : ''}</p>
+        <p className='flex-1 font-bodoniModa'> {selectedImage !== null ? galleryContents[selectedImage - 1].description : ''}</p>
 
-        <hr className='w-full sm:border-2 mx-auto my-1 sm:my-4 lg:my-8' />
+        <div className='flex flex-1'></div>
 
-        <p className='font-bebasNeue my-1'>Founded by Jane Dio, we at DIO ARCHITECTURE has built a reputation for
+        <hr className='w-full sm:border-2 mx-auto my-2' />
+
+        <p className='font-bebasNeue my-2'>Founded by Jane Dio, we at DIO ARCHITECTURE has built a reputation for
           excellence in architectural design and construction for over 11 years,
           showcasing a wide range of projects including commercial and residential
-          buildings, hotels, schools, and public spaces worldwide.</p>
+          buildings, hotels, schools, and public spaces worldwide</p>
 
 
-        <a className='font-bebasNeue text-center border sm:border-2 border-white my-1 sm:my-4 lg:my-8 p-1 sm:p-2 lg:p-4' href="mailto:melcodes.dev@gmail.com">SEND US AN EMAIL</a>
+        <a className='font-bebasNeue text-center border sm:border-2 border-white mt-2 mb-4 p-1 sm:p-2 xl:p-4' href="mailto:melcodes.dev@gmail.com">SEND US AN EMAIL</a>
       </div>
     </section>
   )
