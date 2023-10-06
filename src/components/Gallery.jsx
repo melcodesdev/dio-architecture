@@ -69,7 +69,7 @@ const Gallery = () => {
           >
             <img
               src={galleryContent.imageUrl}
-              className={`object-cover w-1/7 xl:w-[60vw] h-[45vh] xl:h-[84vh] grayscale hover:grayscale-0 ${isImageSelected(galleryContent.id) ? 'absolute block z-10 left-0 w-screen object-fill overflow:visible cursor-pointer grayscale-0' : 'cursor-pointer'
+              className={`object-cover w-1/7 xl:w-[60vw] h-[45vh] xl:h-[84vh] grayscale hover:grayscale-0 ${isImageSelected(galleryContent.id) ? 'absolute block z-10 left-0 w-screen overflow:visible cursor-pointer grayscale-0' : 'cursor-pointer'
                 }`}
               alt="Gallery project image" />
             <h2 className={`absolute w-full font-bodoniModa font-italic text-white origin-top-left -rotate-90 ml-4 xs:ml-6 sm:ml-8 md:ml-11 lg:ml-14 -my-1 sm:-my-2 text-xs sm:text-base xl:text-2xl m-auto ${isImageSelected(galleryContent.id) ? 'hidden' : ''
