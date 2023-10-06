@@ -6,3 +6,9 @@ body, html {
     user-select: none;
     overflow: hidden;
 }
+
+@media screen and (max-width: 1400px) and (orientation: landscape) {
+    body, html {
+        display: none;
+    }
+}
