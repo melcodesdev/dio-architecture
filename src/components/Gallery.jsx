@@ -60,6 +60,7 @@ const Gallery = () => {
 
   return (
     <section className='h-[95vh] xs:h-[90vh] xl:h-[84h] flex flex-col xl:flex-row bg-black'>
+    {/* HOVERED IMAGE TURNS FROM BW TO FULL COLOR, CLICKED IMAGE SHOWS FULL IMAGE AND DESCRIPTION */}
       <div className='w-screen xl:w-[60vw] flex xl:flex-row'>
         {galleryContents.map((galleryContent) => (
           <div
